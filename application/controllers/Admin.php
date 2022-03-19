@@ -149,6 +149,7 @@ class Admin extends MY_Controller
 							} else {
 								$idDetail = $this->insert($tableDetail, $data);
 							}
+							
 							if (!empty($_FILES['detailFile'][$i]['name'])) {
 								$uploadParam = array(
 									'id' => $idDetail,
@@ -196,6 +197,7 @@ class Admin extends MY_Controller
 				}
 		}
 
+
 		if (!empty($id)) {
 			$dataRow = $this->getDataRow($tableName, '*', array('id' => $id), 1)[0];
 			$_POST['cityKey'] = $dataRow['citykey'];
@@ -216,6 +218,11 @@ class Admin extends MY_Controller
 		$data['html']['err'] = $this->genrateErr();
 		$data['url'] = 'admin/articelForm';
 		$this->template($data);
+
+		function validateForm($arrMsgErr)
+		{
+			# code...
+		}
 	}
 
 	public function galeryList()
