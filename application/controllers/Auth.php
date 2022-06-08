@@ -17,7 +17,7 @@ class Auth extends MY_Controller
         $arrWhere = array('username' => $username, 'password' => $password);
         $cek = $this->getDataRow('account', '*', $arrWhere, 1);
         if (count($cek) == 0) {
-            $msg = 'Username atau password salah' . $password;
+            $msg = 'Username atau password salah';
             $this->session->set_flashdata('msg', $msg);
             redirect(base_url('Auth'));
         } else {
